@@ -11,12 +11,9 @@ JSX это круто, но в реальных проектах юзать эт
 
 ### Examples
 
+Создаем простой компнет логина пользователя со спиннером и валидацией
 ```javascript
 import { styled, wrap, component } from '...';
-
-//
-// Создаем простой компнет логина пользователя со спиннером и валидацией
-//
 
 const spinnerStyles = styled(`
   // любые стили для спиннера
@@ -53,8 +50,9 @@ LoginFormComponen.on('submit').then(me => {
 
 export const LoginForm = wrap(LoginFormComponent).with(Spinner);
 
-// Как использовать в другом месте:
-
+```
+Как использовать в другом месте:
+```javascript
 const LoginPage = component`
   h3 This is Login page
   LoginForm
