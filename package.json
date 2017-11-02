@@ -1,0 +1,28 @@
+{
+  "name": "experiment",
+  "version": "0.0.0",
+  "description": "Experiment with react",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maksspace/experiment.git"
+  },
+  "keywords": [
+    "magic-react"
+  ],
+  "author": "Smagin Maksim",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maksspace/experiment/issues"
+  },
+  "homepage": "https://github.com/maksspace/experiment#readme",
+  "dependencies": {
+    "react": "^16.0.0"
+  },
+  "devDependencies": {
+    "webpack": "^3.8.1"
+  }
+}
