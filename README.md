@@ -12,7 +12,7 @@ JSX это круто, но в реальных проектах юзать эт
 ### Examples
 
 ```javascript
-import { styled, wrap } from '...';
+import { styled, wrap, component } from '...';
 
 //
 // Создаем простой компнет логина пользователя со спиннером и валидацией
@@ -25,9 +25,9 @@ const spinnerStyles = styled(`
 `);
 
 const Spinner = styled`.loader`;
-Spinnder.onSubmit = ({ loader }) => {
-  loader.active = true;
-};
+Spinnder.on('submit).then(loader => {
+  return loader.toggle('active');
+});
 
 const inputErrorStyledComponent = styled({
   'input.error': {
@@ -42,17 +42,26 @@ const LoginFormComponent = inputErrorStyledComponent`
     button(type='submit') Login
 `;
 
-LoginFormComponent.validate = ({ login, password }) => {
-  return login && password; // просто не пустые
-};
+LoginFormComponent.on('validate')
+  .then(({ login, password }) => {
+    return login && password || Promise.reject();
+  });
 
-LoginFormComponent.onSubmit = me => {
-  // общаемся с бекендом и все такое
-};
+LoginFormComponen.on('submit').then(me => {
+   // общаемся с бекендом и все такое
+});
 
 export const LoginForm = wrap(LoginFormComponent).with(Spinner);
 
+// Как использовать в другом месте:
+
+const LoginPage = component`
+  h3 This is Login page
+  LoginForm
+`
 ```
 
 К LoginForm можно применять все что угодно из мира react, в том числе prop-types -
 в ключая то что по умолчанию name - переданые как пропсы - мапятся в defaultValue
+
+
