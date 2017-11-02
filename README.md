@@ -25,7 +25,7 @@ const spinnerStyles = styled(`
 `);
 
 const Spinner = styled`.loader`;
-Spinnder.on('submit).then(loader => {
+Spinnder.on('submit').then(loader => {
   return loader.toggle('active');
 });
 
