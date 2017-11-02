@@ -55,7 +55,7 @@ export const LoginForm = wrap(LoginFormComponent).with(Spinner);
 ```javascript
 const LoginPage = component`
   h3 This is Login page
-  LoginForm
+  LoginForm(login={login} password={password})
 `
 ```
 
