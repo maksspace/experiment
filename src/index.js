@@ -3,30 +3,31 @@ import {render} from 'react-dom';
 import {parseToAST} from './parse';
 
 const ast = parseToAST(`
-button(type="submit", className="Helloworld")
+button 123
 `);
 
 const unquote = str => str.slice(1, str.length - 1);
 
 console.log(ast);
 
-function wrap(ast) {
-    const elemsCount = ast.nodes.length;
-    switch (elemsCount) {
-        case 1:
-            const elem = ast.nodes[0];
-            return elem;
-    }
+function wrap(ast, params) {
+    if (!ast) return '';
+    return ast.nodes.map((node, idx) => {
+        const TagName = node.name;
+        return (
+            <TagName {...node.attrs} {...params} key={idx}>
+                { wrap(node.block) || 'text' }
+            </TagName>
+        );
+    })
 }
 
-const Button = ({ children, ...props }) => {
-    return <button {...props}>{children}</button>;
-};
+const Root = wrap(ast, { onClick: () => console.log('LOG')});
 
-console.log(wrap(ast));
+console.log(Root)
 
 const App = () => {
-    return <Button/>;
+    return Root;
 };
 
 render(<App/>, document.getElementById('root'));
