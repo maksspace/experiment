@@ -35,22 +35,24 @@ const inputErrorStyledComponent = styled({
   }
 });
 
-const LoginForm = inputErrorStyledComponent`
+const LoginFormComponent = inputErrorStyledComponent`
   form
     input(name='login')
     input(name='password')
     button(type='submit') Login
 `;
 
-LoginForm.validate = ({ login, password }) => {
+LoginFormComponent.validate = ({ login, password }) => {
   return login && password; // просто не пустые
 };
 
-LoginForm.onSubmit = me => {
+LoginFormComponent.onSubmit = me => {
   // общаемся с бекендом и все такое
 };
 
-export default wrap(LoginForm).with(Spinner);
+export const LoginForm = wrap(LoginFormComponent).with(Spinner);
+
 ```
 
-Вот так с небольшой магией это все работает)
+К LoginForm можно применять все что угодно из мира react, в том числе prop-types -
+в ключая то что по умолчанию name - переданые как пропсы - мапятся в defaultValue
