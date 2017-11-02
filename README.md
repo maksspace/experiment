@@ -24,7 +24,7 @@ const spinnerStyles = styled(`
   // а в классе active - он показывался
 `);
 
-const Spinner = styled`.loader`';
+const Spinner = styled`.loader`;
 Spinnder.onSubmit = ({ loader }) => {
   loader.active = true;
 };
