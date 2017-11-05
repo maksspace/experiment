@@ -28,7 +28,7 @@ module.exports = {
         },
         publicPath: '/',
         compress: true,
-        port: 9000
+        port: 4500
     }
 
 };

@@ -21,10 +21,13 @@
   },
   "homepage": "https://github.com/maksspace/experiment#readme",
   "dependencies": {
+    "lodash": "^4.17.4",
     "pug-lexer": "^3.1.0",
     "pug-parser": "^4.0.0",
     "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2"
   },
   "devDependencies": {
     "babel": "^6.23.0",
